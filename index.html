@@ -1,3 +1,54 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  html, body {
+    cursor: none;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #0A0F1C;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .youtube-channel-section {
+    width: 90vw;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: 30px 0 30px 0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .youtube-channel-section iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+  }
+
+  .image-section {
+    width: 100vw;
+    margin: 5px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-section img {
+    width: 88%;
+    height: auto;
+    display: block;
+  }
+
+  .fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+</style>
 <!-- YouTube Channel Section -->
 <div class="youtube-channel-section">
   <!-- Latest Video Embed -->
@@ -18,60 +69,6 @@
 <div class="image-section">
   <img id="page-image" src="images/2025-A.png" alt="Page Image">
 </div>
-
-<!-- Styling -->
-<style>
-  body {
-    margin: 0;
-    background: #0A0F1C;
-  }
-
-  .youtube-channel-section,
-  .image-section {
-    padding: 0;
-    margin: 0 auto;
-    max-width: 800px;
-    background: #000000;
-  }
-
-  .youtube-latest-video {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 5px;
-  }
-
-  .video-container {
-    background-color: 0A0F1C;
-    position: relative;
-    width: 90%;
-    aspect-ratio: 16 / 9;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  .video-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 10px;
-  }
-
-  .image-section img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .fade-out {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
-</style>
 
 <!-- JavaScript for PNG Rotation with Fade -->
 <script>
@@ -97,5 +94,5 @@
     }, 1000);
   }
 
-  setInterval(rotateImage, 10 * 1000); // Rotate every 10 seconds
+  setInterval(rotateImage, 100 * 1000); // Rotate every 10 seconds
 </script>
