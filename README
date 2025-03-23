@@ -1,5 +1,3 @@
-sudo apt install unclutter-xfixes
-
 add following to ~/.config/labwc/autostart
 
 /usr/bin/lwrespawn bash ~/RFGuruLooper/looper.sh &
