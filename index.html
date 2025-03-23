@@ -1,0 +1,101 @@
+<!-- YouTube Channel Section -->
+<div class="youtube-channel-section">
+  <!-- Latest Video Embed -->
+  <div class="youtube-latest-video">
+    <div class="video-container">
+      <iframe 
+        src="https://www.youtube.com/embed?listType=user&list=PL2neu3pWcZxiieNxQtuoVoEBFT1oJFsFb&autoplay=1&loop=1&mute=1&color=white&modestbranding=1" 
+        title="Latest Video" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<!-- Image Embed Section -->
+<div class="image-section">
+  <img id="page-image" src="images/2025-A.png" alt="Page Image">
+</div>
+
+<!-- Styling -->
+<style>
+  body {
+    margin: 0;
+    background: #0A0F1C;
+  }
+
+  .youtube-channel-section,
+  .image-section {
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+    background: #000000;
+  }
+
+  .youtube-latest-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .video-container {
+    background-color: 0A0F1C;
+    position: relative;
+    width: 90%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+  }
+
+  .image-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+</style>
+
+<!-- JavaScript for PNG Rotation with Fade -->
+<script>
+  const imageList = [
+    "images/2025-A.png",
+    "images/2025-B.png",
+    "images/2025-C.png"
+  ];
+
+  let currentImage = 0;
+  const imageElement = document.getElementById("page-image");
+
+  function rotateImage() {
+    imageElement.classList.add("fade-out");
+
+    setTimeout(() => {
+      currentImage = (currentImage + 1) % imageList.length;
+      imageElement.src = imageList[currentImage];
+
+      setTimeout(() => {
+        imageElement.classList.remove("fade-out");
+      }, 300);
+    }, 1000);
+  }
+
+  setInterval(rotateImage, 10 * 1000); // Rotate every 10 seconds
+</script>
