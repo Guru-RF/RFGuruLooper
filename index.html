@@ -49,18 +49,15 @@
     transition: opacity 1s ease-in-out;
   }
 </style>
+<body>
 <!-- YouTube Channel Section -->
 <div class="youtube-channel-section">
   <!-- Latest Video Embed -->
   <div class="youtube-latest-video">
     <div class="video-container">
-      <iframe 
-        src="https://www.youtube.com/embed?listType=user&list=PL2neu3pWcZxiieNxQtuoVoEBFT1oJFsFb&autoplay=1&loop=1&mute=1&color=white&modestbranding=1" 
-        title="Latest Video" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
+       <div class="youtube-latest-video">
+         <div class="video-container" id="player"></div>
+       </div>
     </div>
   </div>
 </div>
@@ -96,3 +93,41 @@
 
   setInterval(rotateImage, 100 * 1000); // Rotate every 10 seconds
 </script>
+<script>
+  // Load YouTube IFrame API
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.body.appendChild(tag);
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      width: '100%',
+      height: '100%',
+      videoId: '', // leave blank since you're using a playlist
+      playerVars: {
+        listType: 'playlist',
+        list: 'PL2neu3pWcZxiieNxQtuoVoEBFT1oJFsFb',
+        autoplay: 1,
+        loop: 1,
+        mute: 1,
+        modestbranding: 1,
+        color: 'white',
+        rel: 0,
+        controls: 1,
+        playsinline: 1
+      },
+      events: {
+        onReady: onPlayerReady
+      }
+    });
+  }
+
+  function onPlayerReady(event) {
+    event.target.mute(); // Mute just to ensure autoplay works
+    event.target.playVideo();
+    // Try to force 4K
+    event.target.setPlaybackQuality('hd2160');
+  }
+</script>
+</body>
